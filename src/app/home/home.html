@@ -1,0 +1,40 @@
+<main id="indexMain">
+  <h2>Ramschema för Västuniversitetet</h2>
+  <div id="courseHeaders" (click)="findID($event)">
+    <p id="code">Kurskod</p>
+    <p id="name">Kursnamn</p>
+    <p id="points">Poäng</p>
+    <p id="progression">Progression</p>
+    <p>Kursplan</p>
+    <p>Lägg till</p>
+  </div>
+
+  <p>ANTAL:
+    {{ courses().length }}
+  </p>
+
+  @for (course of courses(); track course.courseCode) {
+  <ul id="course">
+    <li>
+      {{ course.courseCode }}
+    </li>
+    <li>
+      {{ course.courseName }}
+    </li>
+    <li>
+      {{ course.points }}
+    </li>
+    <li>
+      {{ course.progression }}
+    </li>
+    <li>
+      <a [href]="course.syllabus">
+        {{ course.courseCode }}
+      </a>
+    </li>
+    <li>
+        <button id="addBtn">Lägg till</button>
+    </li>
+  </ul>
+  }
+</main>

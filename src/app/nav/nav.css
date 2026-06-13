@@ -1,0 +1,20 @@
+#header {
+    background-color: #0e0af5;
+}
+
+#nav {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    list-style: none;
+    padding: 0.5rem 0 0.5rem 0;
+}
+
+li {
+    background-color: #f1f616;
+    padding: 1rem;
+    border-radius: 5px;
+}

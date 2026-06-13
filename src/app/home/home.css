@@ -1,0 +1,25 @@
+#indexMain {
+    text-align: center;
+}
+
+#courseHeaders {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+    list-style: none;
+}
+
+#course {
+    width: 100%;
+    padding-inline-start: 0;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+    list-style: none;
+    border: 1px solid lightgray;
+}
+
+#course>* {
+    padding: 0.5rem;
+}
