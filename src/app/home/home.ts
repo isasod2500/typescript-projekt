@@ -84,6 +84,18 @@ export class Home {
           this.sorted = false;
         }
       }
+
+      if(id === "points") {
+        if(this.sorted == false) {
+          response.sort((a, b) => a.points - b.points)
+          this.courses.set(response)
+          this.sorted = true
+        } else {
+          response.sort((a, b) => b.points - a.points)
+          this.courses.set(response)
+          this.sorted = false
+        }
+      }
     } catch (err) {
       console.log(err)
     }

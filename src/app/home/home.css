@@ -9,6 +9,11 @@
     list-style: none;
 }
 
+#courseHeaders p {
+    text-decoration: underline;
+    cursor: pointer
+}
+
 #course {
     width: 100%;
     padding-inline-start: 0;
