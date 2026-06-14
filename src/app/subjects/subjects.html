@@ -1,0 +1,5 @@
+<select #selectEl (change)="filterSubjects(selectEl.value)">
+  <option *ngFor="let subject of subjects()" [value]="subject">
+    {{ subject }}
+  </option>
+</select>

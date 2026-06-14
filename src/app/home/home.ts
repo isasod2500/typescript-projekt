@@ -1,12 +1,13 @@
-import { Component, inject,signal } from '@angular/core';
-import { Course } from '../course/course';
+import { Component, inject, signal } from '@angular/core';
 import { CourseService } from '../services/course-service';
 import { Coursemodel } from '../models/modelCourse';
+import { Searchbar } from '../searchbar/searchbar';
+import { Subjects } from '../subjects/subjects';
 
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [Searchbar, Subjects],
   standalone: true,
   templateUrl: './home.html',
   styleUrl: './home.css',
@@ -16,7 +17,7 @@ export class Home {
   courses = signal<Coursemodel[]>([]);
   error = signal<string | null>(null)
   sorted: boolean = false;
-  value: string = ""
+
 
   courseService = inject(CourseService);
 
@@ -37,7 +38,10 @@ export class Home {
     try {
       const response = await this.courseService.getCourses();
       this.courses.set(response)
-      console.log(this.courses())
+
+      this.courses().forEach(course => {
+        console.log(course.subject)
+      })
     } catch (error) {
       console.error(error);
       this.error.set("Kunde inte ladda data - försök igen senare");
@@ -85,8 +89,8 @@ export class Home {
         }
       }
 
-      if(id === "points") {
-        if(this.sorted == false) {
+      if (id === "points") {
+        if (this.sorted == false) {
           response.sort((a, b) => a.points - b.points)
           this.courses.set(response)
           this.sorted = true
@@ -99,26 +103,17 @@ export class Home {
     } catch (err) {
       console.log(err)
     }
-
   }
 
-  //Tar input från sökfält, gör om till lowercase för att korrekt filtrera och tar endast med matchande sökfraser.
-  async filterValue(value: string) {
+  async filterSubject(subject: string) {
     try {
       const response = await this.courseService.getCourses();
-      this.value = value.toLowerCase();
-
-      const result = response.filter(course =>
-        course.courseName.toLowerCase().includes(this.value) ||
-        course.courseCode.toLowerCase().includes(this.value)
-      );
-
-      this.courses.set(result)
+      this.courses.set(response)
+      this.courses().forEach(course => {
+        console.log(course.subject)
+      })
     } catch (err) {
       console.log(err)
     }
   }
 }
-
-
-

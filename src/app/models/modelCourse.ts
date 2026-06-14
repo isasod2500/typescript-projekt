@@ -4,4 +4,5 @@ export interface Coursemodel {
     progression: string;
     points: number;
     syllabus: string;
+    subject: string;
 }

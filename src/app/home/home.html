@@ -1,6 +1,8 @@
 <main id="indexMain">
   <h2>Ramschema för Västuniversitetet</h2>
   <h3>För att sortera listan utefter kurskod, kursnamn, poäng eller progression, klicka på rubriken för respektive egenskap.</h3>
+  <app-searchbar></app-searchbar>
+  <app-subjects></app-subjects>
   <div id="courseHeaders" (click)="findID($event)">
     <p id="code">Kurskod</p>
     <p id="name">Kursnamn</p>
@@ -34,7 +36,7 @@
       </a>
     </li>
     <li>
-        <button id="addBtn">Lägg till</button>
+      <button id="addBtn">Lägg till</button>
     </li>
   </ul>
   }
