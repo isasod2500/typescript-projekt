@@ -28,3 +28,16 @@
 #course>* {
     padding: 0.5rem;
 }
+
+#filterElements {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+#addBtn {
+    background-color: rgb(116, 214, 116);
+    padding: 0.5rem;
+    box-sizing: border-box;
+}

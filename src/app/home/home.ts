@@ -14,7 +14,9 @@ import { Subjects } from '../subjects/subjects';
 })
 export class Home {
 
+  allCourses = signal<Coursemodel[]>([]);
   courses = signal<Coursemodel[]>([]);
+
   error = signal<string | null>(null)
   sorted: boolean = false;
 
@@ -37,7 +39,8 @@ export class Home {
   async loadCourses() {
     try {
       const response = await this.courseService.getCourses();
-      this.courses.set(response)
+      this.allCourses.set(response);
+      this.courses.set(response);
 
       this.courses().forEach(course => {
         console.log(course.subject)
@@ -105,15 +108,8 @@ export class Home {
     }
   }
 
-  async filterSubject(subject: string) {
-    try {
-      const response = await this.courseService.getCourses();
-      this.courses.set(response)
-      this.courses().forEach(course => {
-        console.log(course.subject)
-      })
-    } catch (err) {
-      console.log(err)
-    }
+  selectedSubject(subject: string) {
+    const filtered = this.allCourses().filter(c => c.subject === subject);
+    this.courses.set(filtered);
   }
 }

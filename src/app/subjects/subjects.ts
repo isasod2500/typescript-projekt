@@ -11,7 +11,7 @@ import { CourseService } from '../services/course-service';
 })
 export class Subjects {
 
-  @Output() subjectSelected = new EventEmitter<string>();
+  @Output() selectedSubject = new EventEmitter<string>();
 
   subjects = computed(() =>
     [...new Set(this.courses().map(c => c.subject))]
@@ -30,7 +30,7 @@ export class Subjects {
   }
 
   filterSubjects(subject: string) {
-    this.subjectSelected.emit(subject);
+    this.selectedSubject.emit(subject);
   }
 
 
