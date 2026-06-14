@@ -38,7 +38,7 @@
 
 
 
-#addBtn {
+.addBtn {
     background-color: rgb(116, 214, 116);
     padding: 0.5rem;
     box-sizing: border-box;

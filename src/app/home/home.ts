@@ -136,4 +136,19 @@ export class Home {
     //Uppdatera variabel courses med filtrerad data
     this.courses.set(data)
   }
+
+  addCourse(id: string) {
+    const stored = localStorage.getItem("courses")
+
+    const courses: string[] = stored ? JSON.parse(stored) : []
+
+    if (courses.includes(id)) {
+      return;
+    }
+    courses.push(id)
+
+    localStorage.setItem("courses", JSON.stringify(courses))
+
+    console.log(stored)
+  }
 }

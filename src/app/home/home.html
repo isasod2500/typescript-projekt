@@ -39,7 +39,7 @@
       </a>
     </li>
     <li>
-      <button id="addBtn">Lägg till</button>
+      <button class="addBtn" data-id="{{ course.courseCode }}" (click)="addCourse(course.courseCode)">Lägg till</button>
     </li>
   </ul>
   }
