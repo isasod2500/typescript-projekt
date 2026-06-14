@@ -3,7 +3,7 @@
   <h3>För att sortera listan utefter kurskod, kursnamn, poäng eller progression, klicka på rubriken för respektive egenskap.</h3>
   <div id="filterElements">
     <app-subjects (selectedSubject)="selectedSubject($event)"></app-subjects>
-    <app-searchbar></app-searchbar>
+    <app-searchbar (searchFilter)="searchFilter($event)"></app-searchbar>
   </div>
   <div id="courseHeaders" (click)="findID($event)">
     <p id="code">Kurskod</p>
@@ -18,7 +18,8 @@
     {{ courses().length }}
   </p>
 
-  @for (course of courses(); track course.courseCode) {
+  <!-- For-loop för varje course. Vissa id var dubbletter, så jag trackar index istället. -->
+  @for (course of courses(); track $index) {
   <ul id="course">
     <li>
       {{ course.courseCode }}

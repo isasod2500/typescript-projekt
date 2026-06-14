@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, Output, EventEmitter } from '@angular/core';
 import { CourseService } from '../services/course-service';
 import { Coursemodel } from '../models/modelCourse';
 
@@ -10,25 +10,16 @@ import { Coursemodel } from '../models/modelCourse';
 })
 export class Searchbar {
 
+  //Skapar output för sökfiltrering
+  @Output() searchFilter = new EventEmitter<string>();
+
   value: string = ""
   courses = signal<Coursemodel[]>([]);
 
   courseService = inject(CourseService);
 
-  //Tar input från sökfält, gör om till lowercase för att korrekt filtrera och tar endast med matchande sökfraser.
+  //Tar input från sökfält och emittar till Home. 
   async filterValue(value: string) {
-    try {
-      const response = await this.courseService.getCourses();
-      this.value = value.toLowerCase();
-
-      const result = response.filter(course =>
-        course.courseName.toLowerCase().includes(this.value) ||
-        course.courseCode.toLowerCase().includes(this.value)
-      );
-
-      this.courses.set(result)
-    } catch (err) {
-      console.log(err)
-    }
+    this.searchFilter.emit(value)
   }
 }
