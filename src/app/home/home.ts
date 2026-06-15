@@ -25,6 +25,7 @@ export class Home {
 
   courseService = inject(CourseService);
 
+  successTexts = signal<Record<string, string>>({});
 
 
   //Funktion för att få fram idt tillhörande vad som klickas. 
@@ -33,6 +34,7 @@ export class Home {
     this.filterCourses(element.id)
   }
 
+  //Vid hämtning av sida, laddar kurser
   ngOnInit() {
     this.loadCourses();
   }
@@ -106,12 +108,14 @@ export class Home {
       console.log(err)
     }
   }
-
+  
+  //funktion för ämne
   selectedSubject(subject: string) {
     this.subjectValue = subject;
     this.combineFilter();
   }
 
+  //Funktion för sökruta
   searchFilter(value: string) {
     this.searchValue.set(value.toLowerCase());
     this.combineFilter()
@@ -137,18 +141,24 @@ export class Home {
     this.courses.set(data)
   }
 
+  //Funktion för knapp och "success"meddelande
   addCourse(id: string) {
-    const stored = localStorage.getItem("courses")
+    const stored = localStorage.getItem("courses");
 
-    const courses: string[] = stored ? JSON.parse(stored) : []
+    //Om inget finns i courses, gör den null. Annars hämta info
+    const courses: string[] = stored ? JSON.parse(stored) : [];
+
+    //Skapar ny array för signal
+    const texts = { ...this.successTexts() };
 
     if (courses.includes(id)) {
-      return;
+      texts[id] = "Kursen finns redan!";
+    } else {
+      courses.push(id);
+      localStorage.setItem("courses", JSON.stringify(courses));
+      texts[id] = "Kurs tillagd!";
     }
-    courses.push(id)
 
-    localStorage.setItem("courses", JSON.stringify(courses))
-
-    console.log(stored)
+    this.successTexts.set(texts);
   }
 }

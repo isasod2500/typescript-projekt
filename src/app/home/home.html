@@ -39,6 +39,9 @@
       </a>
     </li>
     <li>
+      <p class="success">
+        {{ successTexts()[course.courseCode] }}
+      </p>
       <button class="addBtn" data-id="{{ course.courseCode }}" (click)="addCourse(course.courseCode)">Lägg till</button>
     </li>
   </ul>
