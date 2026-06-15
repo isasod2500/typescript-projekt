@@ -3,4 +3,16 @@ select {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin: -0.2rem;
 }
+
+#selectList {
+    text-align: left;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+}
+
+

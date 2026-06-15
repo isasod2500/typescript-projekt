@@ -25,6 +25,7 @@ export class Home {
 
   courseService = inject(CourseService);
 
+  //Skapar objekt för kurskoder och deras successmeddelande
   successTexts = signal<Record<string, string>>({});
 
 

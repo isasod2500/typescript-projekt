@@ -1,6 +1,8 @@
-<select #selectEl (change)="filterSubjects(selectEl.value)">
-  <option value="">Visa alla</option>
-  <option *ngFor="let subject of subjects()" [value]="subject">
-    {{ subject }}
-  </option>
-</select>
+<div id="selectList"><label for="selectEl">Sortera efter ämne</label>
+  <select id="selectEl" #selectEl (change)="filterSubjects(selectEl.value)">
+    <option value="">Visa alla</option>
+    <option *ngFor="let subject of subjects()" [value]="subject">
+      {{ subject }}
+    </option>
+  </select>
+</div>

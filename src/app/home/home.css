@@ -1,45 +1,63 @@
-#indexMain {
-    text-align: center;
-}
+@media (max-width: 768px) {
+    #indexMain {
+        text-align: center;
+    }
 
-#courseHeaders {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1rem;
-    list-style: none;
-}
+    #add {
+        display: none;
+    }
+    #courseHeaders {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1rem;
+        list-style: none;
+        border: 1px solid lightgray;
+    }
 
-#courseHeaders p {
-    text-decoration: underline;
-    cursor: pointer
-}
+    #courseHeaders p {
+        text-decoration: underline;
+        cursor: pointer
+    }
 
-#course {
-    width: 100%;
-    padding-inline-start: 0;
-    display: grid;
-    align-items: center;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1rem;
-    list-style: none;
-    border: 1px solid lightgray;
-}
+    .course {
+        width: 100%;
+        padding-inline-start: 0;
 
-#course>* {
-    padding: 0.5rem;
-}
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1rem;
+        list-style: none;
+        border: 1px solid lightgray;
+        align-items: center;
+    }
 
-#filterElements {
-    display: grid;
-    align-items: center;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-}
+    .course li {
+        padding-top: 1rem;
+    }
 
+    .course button {
+        margin-bottom: 1rem;
+    }
 
+    #filterElements {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        grid-template-rows: repeat(2, 1fr);
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
 
-.addBtn {
-    background-color: rgb(116, 214, 116);
-    padding: 0.5rem;
-    box-sizing: border-box;
+    .courseBtn {
+        grid-column: 1 / -1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .courseBtn button {
+        background-color: lightgreen;
+        padding: 0.5rem;
+    }
+
 }

@@ -10,8 +10,8 @@
     <p id="name">Kursnamn</p>
     <p id="points">Poäng</p>
     <p id="progression">Progression</p>
-    <p>Kursplan</p>
-    <p>Lägg till</p>
+    <p id="syllabus">Kursplan</p>
+    <p id="add">Lägg till</p>
   </div>
 
   <p>ANTAL:
@@ -20,7 +20,7 @@
 
   <!-- For-loop för varje course. Vissa id var dubbletter, så jag trackar index istället. -->
   @for (course of courses(); track $index) {
-  <ul id="course">
+  <ul class="course">
     <li>
       {{ course.courseCode }}
     </li>
@@ -35,15 +35,17 @@
     </li>
     <li>
       <a [href]="course.syllabus">
-        {{ course.courseCode }}
-      </a>
+        {{ course.courseCode }}</a>
     </li>
-    <li>
+    <li class="courseBtn">
       <p class="success">
         {{ successTexts()[course.courseCode] }}
       </p>
-      <button class="addBtn" data-id="{{ course.courseCode }}" (click)="addCourse(course.courseCode)">Lägg till</button>
+      <button (click)="addCourse(course.courseCode)">
+        Lägg till
+      </button>
     </li>
+
   </ul>
   }
 </main>
