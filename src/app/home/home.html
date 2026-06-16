@@ -4,6 +4,7 @@
   <div id="filterElements">
     <app-subjects (selectedSubject)="selectedSubject($event)"></app-subjects>
     <app-searchbar (searchFilter)="searchFilter($event)"></app-searchbar>
+    <app-reset (click)="resetFilter()"></app-reset>
   </div>
   <div id="courseHeaders" (click)="findID($event)">
     <p id="code">Kurskod</p>

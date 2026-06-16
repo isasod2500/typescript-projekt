@@ -37,6 +37,9 @@
 
     .course button {
         margin-bottom: 1rem;
+        border-radius: 5px;
+        box-sizing: border-box;
+        padding: 1rem;
     }
 
     #filterElements {

@@ -3,11 +3,13 @@ import { CourseService } from '../services/course-service';
 import { Coursemodel } from '../models/modelCourse';
 import { Searchbar } from '../searchbar/searchbar';
 import { Subjects } from '../subjects/subjects';
+import { Reset } from '../reset/reset';
+
 
 
 @Component({
   selector: 'app-home',
-  imports: [Searchbar, Subjects],
+  imports: [Searchbar, Subjects, Reset],
   standalone: true,
   templateUrl: './home.html',
   styleUrl: './home.css',
@@ -109,7 +111,7 @@ export class Home {
       console.log(err)
     }
   }
-  
+
   //funktion för ämne
   selectedSubject(subject: string) {
     this.subjectValue = subject;
@@ -142,24 +144,36 @@ export class Home {
     this.courses.set(data)
   }
 
-  //Funktion för knapp och "success"meddelande
-  addCourse(id: string) {
-    const stored = localStorage.getItem("courses");
+  resetFilter() {
+    this.searchValue.set("");
+    this.subjectValue = "";
+    this.courses.set(this.allCourses());
 
-    //Om inget finns i courses, gör den null. Annars hämta info
-    const courses: string[] = stored ? JSON.parse(stored) : [];
+    const select = document.querySelector("select") as HTMLSelectElement;
+    if (select) select.value = "";
+    
+    const search = document.getElementById("search") as HTMLInputElement;
+    if (search) search.value = "";
+}
 
-    //Skapar ny array för signal
-    const texts = { ...this.successTexts() };
+//Funktion för knapp och "success"meddelande
+addCourse(id: string) {
+  const stored = localStorage.getItem("courses");
 
-    if (courses.includes(id)) {
-      texts[id] = "Kursen finns redan!";
-    } else {
-      courses.push(id);
-      localStorage.setItem("courses", JSON.stringify(courses));
-      texts[id] = "Kurs tillagd!";
-    }
+  //Om inget finns i courses, gör den null. Annars hämta info
+  const courses: string[] = stored ? JSON.parse(stored) : [];
 
-    this.successTexts.set(texts);
+  //Skapar ny array för signal
+  const texts = { ...this.successTexts() };
+
+  if (courses.includes(id)) {
+    texts[id] = "Kursen finns redan!";
+  } else {
+    courses.push(id);
+    localStorage.setItem("courses", JSON.stringify(courses));
+    texts[id] = "Kurs tillagd!";
   }
+
+  this.successTexts.set(texts);
+}
 }
