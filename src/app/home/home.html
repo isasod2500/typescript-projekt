@@ -1,16 +1,21 @@
 <main id="indexMain">
-  <h2>Ramschema för Västuniversitetet</h2>
-  <h3>För att sortera listan utefter kurskod, kursnamn, poäng eller progression, klicka på rubriken för respektive egenskap.</h3>
-  <div id="filterElements">
-    <app-subjects (selectedSubject)="selectedSubject($event)"></app-subjects>
-    <app-searchbar (searchFilter)="searchFilter($event)"></app-searchbar>
-    <app-reset (click)="resetFilter()"></app-reset>
+  <div id="indexHeading">
+    <div id="indexHeaders">
+      <h2>Ramschema för Västuniversitetet</h2>
+      <h3>För att sortera listan utefter kurskod, kursnamn, poäng eller progression, klicka på rubriken för respektive egenskap.</h3>
+    </div>
+    <div id="filterElements">
+      <app-subjects (selectedSubject)="selectedSubject($event)"></app-subjects>
+      <app-searchbar (searchFilter)="searchFilter($event)"></app-searchbar>
+      <app-reset (click)="resetFilter()"></app-reset>
+      <p>ANTAL:
+        {{ courses().length }}
+      </p>
+    </div>
   </div>
 
 
-  <p>ANTAL:
-    {{ courses().length }}
-  </p>
+
   <div id="courseList">
     <div id="courseHeaders" (click)="findID($event)">
       <p id="code">Kurskod</p>
@@ -40,9 +45,11 @@
           {{ course.courseCode }}</a>
       </li>
       <li class="courseBtn">
+        @if (successTexts()[course.courseCode]) {
         <p class="success">
           {{ successTexts()[course.courseCode] }}
         </p>
+        }
         <button (click)="addCourse(course.courseCode)">
           Lägg till
         </button>
