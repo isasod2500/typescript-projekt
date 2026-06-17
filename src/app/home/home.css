@@ -1,22 +1,32 @@
 @media (max-width: 768px) {
     #indexMain {
+        font-size: clamp(0.75rem, 0.4821rem + 1.3393vw, 1.125rem);
         text-align: center;
     }
 
     #add {
         display: none;
     }
+
     #courseHeaders {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         gap: 1rem;
         list-style: none;
         border: 1px solid lightgray;
+        color: white;
+        
     }
 
     #courseHeaders p {
         text-decoration: underline;
-        cursor: pointer
+        cursor: pointer;
+    }
+
+    #courseList {
+        background-color: #3431fcce;
+        border-radius: 5px;
+        padding: 0.5rem;
     }
 
     .course {
@@ -29,18 +39,17 @@
         list-style: none;
         border: 1px solid lightgray;
         align-items: center;
+
+        border-radius: 5px;
+        background-color: #e4e73f;
+        color: #000;
+
     }
 
     .course li {
         padding-top: 1rem;
     }
 
-    .course button {
-        margin-bottom: 1rem;
-        border-radius: 5px;
-        box-sizing: border-box;
-        padding: 1rem;
-    }
 
     #filterElements {
         display: grid;
@@ -59,8 +68,20 @@
     }
 
     .courseBtn button {
-        background-color: lightgreen;
+        margin-bottom: 1rem;
+        border-radius: 5px;
+        box-sizing: border-box;
         padding: 0.5rem;
+        background-color: lightgreen;
+    }
+
+    .courseBtn button:hover {
+        cursor: pointer;
+        background-color: rgb(173, 255, 173);
+    }
+
+    .courseBtn button:active {
+        background-color: rgb(122, 252, 122);
     }
 
 }
