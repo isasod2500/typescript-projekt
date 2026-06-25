@@ -1,4 +1,19 @@
 <main id="mypageMain">
+  <div id="mypageHeading">
+    <div id="mypageHeaders">
+      <h2>Eget ramschema</h2>
+      <h3>Filtrera med fälten nedan med hjälp av sökord och ämne.</h3>
+    </div>
+    <div id="filterElements">
+      <app-subjects (selectedSubject)="selectedSubject($event)"></app-subjects>
+      <app-searchbar (searchFilter)="searchFilter($event)"></app-searchbar>
+      <app-reset (click)="resetFilter()"></app-reset>
+      <p>ANTAL:
+        {{ courses().length }}
+      </p>
+    </div>
+  </div>
+
   <div id="courseList">
     <div id="courseHeaders" (click)="findID($event)">
       <p id="code">Kurskod</p>
