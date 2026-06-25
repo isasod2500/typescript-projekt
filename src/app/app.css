@@ -1,3 +1,6 @@
 .container {
-    font-family: Quicksand, sans-serif
+    font-family: Quicksand, sans-serif;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }

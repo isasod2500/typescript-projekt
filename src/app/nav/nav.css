@@ -1,5 +1,8 @@
 #header {
     background-color: #605dfc;
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 #nav {
@@ -11,10 +14,29 @@
     grid-row-gap: 0px;
     list-style: none;
     padding: 0.5rem 0 0.5rem 0;
+    font-size: clamp(0.75rem, 0.4821rem + 1.3393vw, 1.125rem);
+
 }
 
 li {
-    background-color: #f7fa5e;
+
+    background-color: #f9fb78;
     padding: 1rem;
     border-radius: 5px;
+}
+
+li a {
+    text-decoration: none;
+}
+
+li:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    background-color: rgb(251, 255, 0);
+}
+
+li.current {
+    text-decoration: underline;
+    background-color: rgb(251, 255, 0);
+    padding: 1rem 0.5rem 1.1rem 0.5rem;
 }

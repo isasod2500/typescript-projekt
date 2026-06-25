@@ -1,19 +1,10 @@
 @media (max-width: 768px) {
-    #indexMain {
+    #mypageMain {
         font-size: clamp(0.75rem, 0.4821rem + 1.3393vw, 1.125rem);
         text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
-    }
-
-    #indexHeading {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background-color: rgba(255, 255, 255, 0.8);
-        margin-bottom: 1rem;
     }
 
     #indexHeaders {
@@ -37,6 +28,7 @@
         list-style: none;
         border: 1px solid lightgray;
         color: white;
+        justify-items: center;
 
     }
 
@@ -96,7 +88,7 @@
         border-radius: 5px;
         box-sizing: border-box;
         padding: 0.5rem;
-        background-color: lightgreen;
+        background-color: #f4584d;
     }
 
     .courseBtn button:hover {
@@ -108,11 +100,13 @@
         background-color: rgb(122, 252, 122);
     }
 
+
+
 }
 
 @media (min-width: 768px) and (max-width: 1200px) {
 
-    #indexMain {
+    #mypageMain {
         font-size: clamp(0.75rem, 0.4821rem + 1.3393vw, 1.125rem);
         text-align: center;
         display: flex;
@@ -146,7 +140,7 @@
         list-style: none;
         border: 1px solid lightgray;
         color: white;
-
+        justify-items: center;
     }
 
     #courseHeaders p {
@@ -204,7 +198,7 @@
         border-radius: 5px;
         box-sizing: border-box;
         padding: 0.5rem;
-        background-color: lightgreen;
+        background-color: #f4584d;
     }
 
     .courseBtn button:hover {
@@ -221,7 +215,7 @@
 
 @media (min-width: 1200px) {
 
-    #indexMain {
+    #mypageMain {
         font-size: clamp(0.75rem, 0.4821rem + 1.3393vw, 1.125rem);
         text-align: center;
         display: flex;
@@ -257,7 +251,7 @@
         list-style: none;
         border: 1px solid lightgray;
         color: white;
-
+        justify-items: center;
     }
 
     #courseHeaders p {
@@ -270,7 +264,7 @@
         border-radius: 5px;
         padding: 0.5rem;
         width: 80%;
-        max-width: 1300px;
+        max-width: 80%;
     }
 
     .course {
@@ -317,7 +311,7 @@
         border-radius: 5px;
         box-sizing: border-box;
         padding: 0.5rem;
-        background-color: lightgreen;
+        background-color: #f4584d;
     }
 
     .courseBtn button:hover {

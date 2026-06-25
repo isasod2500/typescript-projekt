@@ -1,0 +1,39 @@
+<main id="mypageMain">
+  <div id="courseList">
+    <div id="courseHeaders" (click)="findID($event)">
+      <p id="code">Kurskod</p>
+      <p id="name">Kursnamn</p>
+      <p id="points">Poäng</p>
+      <p id="progression">Progression</p>
+      <p id="syllabus">Kursplan</p>
+      <p id="delete">Ta bort</p>
+    </div>
+    <!-- For-loop för varje course. Vissa id var dubbletter, så jag trackar index istället. -->
+    @for (course of courses(); track $index) {
+    <ul class="course">
+      <li>
+        {{ course.courseCode }}
+      </li>
+      <li class="courseName">
+        {{ course.courseName }}
+      </li>
+      <li>
+        {{ course.points }}
+      </li>
+      <li>
+        {{ course.progression }}
+      </li>
+      <li>
+        <a [href]="course.syllabus">
+          {{ course.courseCode }}</a>
+      </li>
+      <li class="courseBtn">
+        <button (click)="removeCourse(course.courseCode)">
+          Ta bort kurs
+        </button>
+      </li>
+
+    </ul>
+    }
+  </div>
+</main>
