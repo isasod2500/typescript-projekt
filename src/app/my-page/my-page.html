@@ -11,6 +11,11 @@
       <p>ANTAL:
         {{ courses().length }}
       </p>
+
+
+      <p>Sammanlagda högskolepoäng:
+        {{ courses().reduce((sum, course) => sum + course.points, 0) }}
+      </p>
     </div>
   </div>
 
