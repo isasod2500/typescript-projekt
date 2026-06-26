@@ -1,6 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { Coursemodel } from '../models/modelCourse';
 import { CourseService } from '../services/course-service';
+import { ScheduleService } from '../services/schedule-service';
 import { Searchbar } from '../searchbar/searchbar';
 import { Subjects } from '../subjects/subjects';
 import { Reset } from '../reset/reset';
@@ -17,6 +18,7 @@ export class MyPage {
   successTexts = signal<Record<string, string>>({});
 
   courseService = inject(CourseService);
+  scheduleService = inject(ScheduleService)
 
   allCourses = signal<Coursemodel[]>([]);
   courses = signal<Coursemodel[]>([]);
@@ -57,21 +59,14 @@ export class MyPage {
 
   }
 
-
+  //Funktion för ta-bort knapp på kurser i ramschemat. Funktionen återapplicerar sedan filtreringen.
   removeCourse(id: string) {
-    const stored = localStorage.getItem("courses");
+    this.scheduleService.removeCourse(id)
 
-    // Hämta array eller tom
-    const courses: string[] = stored ? JSON.parse(stored) : [];
-
-    const updatedCourses = courses.filter(courseId => courseId !== id);
-
-    localStorage.setItem("courses", JSON.stringify(updatedCourses));
-
-    //Återapplicera filtrering efter borttagning
     this.allCourses.set(
       this.allCourses().filter(c => c.courseCode !== id)
     );
+
     this.combineFilter();
   }
 

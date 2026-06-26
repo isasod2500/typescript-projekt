@@ -72,6 +72,10 @@
         padding-top: 1rem;
     }
 
+    .longCourseName {
+        font-size: 0.75rem;
+    }
+
 
     #filterElements {
         display: grid;
@@ -174,7 +178,10 @@
         border-radius: 5px;
         background-color: #e4e73f;
         color: #000;
+    }
 
+    .longCourseName {
+        font-size: 0.75rem;
     }
 
     .course li {
@@ -269,8 +276,7 @@
         background-color: #3431fcce;
         border-radius: 5px;
         padding: 0.5rem;
-        width: 80%;
-        max-width: 1300px;
+
     }
 
     .course {
@@ -304,6 +310,10 @@
         grid-template-rows: repeat(2, 1fr);
         gap: 1rem;
         margin-bottom: 1rem;
+    }
+
+    .longCourseName {
+        font-size: 0.85rem;
     }
 
     .courseBtn {

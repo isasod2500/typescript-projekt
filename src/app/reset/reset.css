@@ -2,5 +2,13 @@
         border-radius: 5px;
         box-sizing: border-box;
         padding: 0.5rem;
-        background-color: orange;
+        background-color: #ffa500;
+    }
+
+    #reset:hover {
+        background-color: #ffc354;
+    }
+
+    #reset:active {
+        background-color: #d18903
     }

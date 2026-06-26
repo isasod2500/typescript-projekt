@@ -31,9 +31,15 @@
       <li>
         {{ course.courseCode }}
       </li>
+      @if (course.courseName.length > 60) {
+      <li class="longCourseName">
+        {{ course.courseName }}
+      </li>
+      } @else {
       <li class="courseName">
         {{ course.courseName }}
       </li>
+      }
       <li>
         {{ course.points }}
       </li>

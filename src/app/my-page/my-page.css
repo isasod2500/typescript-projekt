@@ -85,6 +85,10 @@
         padding: 1rem;
     }
 
+    .longCourseName {
+        font-size: 0.75rem;
+    }
+
     .courseBtn {
         grid-column: 1 / -1;
         display: flex;
@@ -194,6 +198,10 @@
         grid-template-rows: repeat(2, 1fr);
         gap: 1rem;
         margin-bottom: 1rem;
+    }
+
+    .longCourseName {
+        font-size: 0.75rem;
     }
 
     .courseBtn {
@@ -308,6 +316,10 @@
         grid-template-rows: repeat(2, 1fr);
         gap: 1rem;
         margin-bottom: 1rem;
+    }
+
+    .longCourseName {
+        font-size: 0.85rem;
     }
 
     .courseBtn {
