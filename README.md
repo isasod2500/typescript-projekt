@@ -1,59 +1,13 @@
-# TypescriptProjekt
+# Projektuppgift för Typescript Programmering
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.15.
+## [Netlify - Västuniversitetet](https://typescript-projekt-vastuniversitetet.netlify.app/home)
 
-## Development server
+## Om uppgiften och webbplatsen
 
-To start a local development server, run:
+Det fiktiva universitetet Västuniversitetet har skapat en webbplats för intresserade ansökande. På webbplatsen får man en överblick över samtliga kurser som universitetet erbjuder. Man kan sortera genom att söka på nyckelord, filtrera på ämnen med en lista samt filtrera i bokstavsordning/storleksordning genom att klicka på varje egenskaps rubrik.
+I varje rad tillhörande varje kurs finns en knapp för att lägga till. Denna sparar kursen i localStorage för att sedan skrivas ut på den andra undersidan, Mitt Ramschema.
 
-```bash
-ng serve
-```
+Mitt Ramschema-sidan skriver ut samtliga kurser från lokalminnet, som man byggt på startsidan. Här finns samma alternativ för filtrering och genomsökning som på startsidan, fast istället får varje kurs en radera-knapp, som tar bort kursen från lokalminnet och ramschemat.
+Man får även en överblick över antalet kurser i listan (både på startsidan och på ramschema-sidan) samt totala mängden högskolepoäng som kurserna sammanlagt är värda. (endast ramschema-sidan).
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Funktionerna i webbplatsen är endast för grundkraven.
