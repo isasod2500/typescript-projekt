@@ -17,15 +17,19 @@ export class MyPage {
   //Skapar objekt för kurskoder och deras successmeddelande
   successTexts = signal<Record<string, string>>({});
 
+  //Hämtar service för httpclient och service för ramschemats logik
   courseService = inject(CourseService);
   scheduleService = inject(ScheduleService)
 
+  //Två arrayer, en för originaldata (httpclient) och en för modifierad data (filtrering tex)
   allCourses = signal<Coursemodel[]>([]);
   courses = signal<Coursemodel[]>([]);
 
+  //Anger filtrering som tom i början för att sedan ändras med hjälp av funktion
   subjectValue: string = "";
   searchValue = signal<string>("")
 
+  //Errorarray och boolean för sortering
   error = signal<string | null>(null)
   sorted: boolean = false;
 
@@ -40,6 +44,8 @@ export class MyPage {
     this.filterCourses(element.id)
   }
 
+  /*Funktion för att hämta in kurser från localstorage. 
+    Funktionen jämför kursernas ID i localstorage och fetchen. Skapar en ny array med matchande IDs*/
   async showCourses() {
     const stored = localStorage.getItem("courses");
 
@@ -48,6 +54,7 @@ export class MyPage {
 
     const ids: string[] = stored ? JSON.parse(stored) : [];
 
+    //Hämtas kurser från courseservice
     const allCourses = await this.courseService.getCourses();
 
     const filteredCourses = allCourses.filter(course =>
@@ -70,7 +77,7 @@ export class MyPage {
     this.combineFilter();
   }
 
-  //Filtrerar kurskod, namn och prog.
+  //Filtrerar kurskod, namn, prog och poäng.
   async filterCourses(id: string) {
     try {
       let data = [...this.courses()];
@@ -159,6 +166,7 @@ export class MyPage {
     this.courses.set(data)
   }
 
+  //Logik för knapp som nollställer filtrering.
   resetFilter() {
     this.searchValue.set("");
     this.subjectValue = "";

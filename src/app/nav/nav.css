@@ -13,15 +13,15 @@
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     list-style: none;
-    padding: 0.5rem 0 0.5rem 0;
+    padding: 0.5rem 0.2rem 0.5rem 0.2rem;
     font-size: clamp(0.75rem, 0.4821rem + 1.3393vw, 1.125rem);
-
 }
+
 
 li {
 
     background-color: #f9fb78;
-    padding: 1rem;
+    padding: 0.5rem 0.2rem 0.5rem 0.2rem;
     border-radius: 5px;
 }
 
@@ -40,5 +40,30 @@ li:hover {
 li.current {
     text-decoration: underline;
     background-color: rgb(251, 255, 0);
-    padding: 1rem 0.5rem 1.1rem 0.5rem;
+
+}
+
+
+@media (max-width: 768px) {
+    li {
+
+        border-radius: 5px;
+    }
+
+    li a {
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+    }
+
+    li:hover {
+        text-decoration: underline;
+        cursor: pointer;
+        background-color: rgb(251, 255, 0);
+    }
+
+    li.current {
+        text-decoration: underline;
+        background-color: rgb(251, 255, 0);
+    }
 }

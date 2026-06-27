@@ -11,8 +11,10 @@ import { CourseService } from '../services/course-service';
 })
 export class Subjects {
 
+  //Skapar en output till HTML
   @Output() selectedSubject = new EventEmitter<string>();
 
+  //computed körs vid ändring av courses och filtrerar ut dubblettämnen
   subjects = computed(() =>
     [...new Set(this.courses().map(c => c.subject))]
   )
@@ -24,11 +26,14 @@ export class Subjects {
     this.loadCourses()
   }
 
+  //Funktion som fetchar courses från ramschemat från courseservice och gör courses till responsen.
   async loadCourses() {
     const response = await this.courseService.getCourses();
     this.courses.set(response)
   }
 
+
+  //En change-eventlistener på HTML-elementet som skickar valt värde till home/mypage.ts
   filterSubjects(subject: string) {
     this.selectedSubject.emit(subject);
   }
