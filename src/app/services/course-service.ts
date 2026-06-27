@@ -8,6 +8,7 @@ import { firstValueFrom } from 'rxjs';
 })
 export class CourseService {
 
+  //Service för att hämta ramschemat. Kallas sedan på från andra komponenter
   url: string = "https://matdah.github.io/DT208G---Programmering-i-TypeScript/Moment%205%20-%20Projekt/miun_courses.json"
 
   http = inject(HttpClient);

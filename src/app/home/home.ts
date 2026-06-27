@@ -15,16 +15,20 @@ import { Reset } from '../reset/reset';
   styleUrl: './home.css',
 })
 export class Home {
-
+ 
+  //En array för originaldatan, allCourses, och en array för modifierad data (vid filtrering tex)
   allCourses = signal<Coursemodel[]>([]);
   courses = signal<Coursemodel[]>([]);
 
+  //Array för fel och en boolean för sortering. 
   error = signal<string | null>(null)
   sorted: boolean = false;
 
+  //Anger för Angular att dessa värden är tomma till att börja med, och vid ifyllning körs en funktion som lyssnar.
   subjectValue: string = "";
   searchValue = signal<string>("")
 
+  //Hämtar service för httpclient
   courseService = inject(CourseService);
 
   //Skapar objekt för kurskoder och deras successmeddelande
@@ -144,6 +148,7 @@ export class Home {
     this.courses.set(data)
   }
 
+  //Knapp för att nollställa filter 
   resetFilter() {
     this.searchValue.set("");
     this.subjectValue = "";
